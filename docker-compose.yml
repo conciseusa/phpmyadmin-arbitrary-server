@@ -1,0 +1,13 @@
+version: "2"
+# expose phpmyadmin on port 8080 on the host, image: phpmyadmin - official image
+services:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    container_name: phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+    volumes:
+      - /sessions
